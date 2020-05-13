@@ -1,0 +1,132 @@
+:root{
+    --bg-color: #F1FAEE;
+    --light-fg-color: #a8dadc;
+    --light-text-color: #1D3557;
+    --dark-fg-color: #457b9d;
+    --dark-text-color: #F1FAEE;
+    --title-color: #1D3557;
+    --highlight-color: #E63946;
+    
+}
+
+
+/* ID */
+#title{
+    display: inline-block;
+    font: 100px 'Lobster', cursive;
+    color: var(--title-color);
+}
+#title:hover{
+    color: var(--highlight-color);
+}
+#gridOptions{
+    display: inline-grid;
+    padding: 10px;
+}
+#gridSizeContainer{
+    height: 1.55em;
+    width: 5em;
+    font: 20px 'Varela Round', Helvetica;
+    margin: 5px;
+    padding: .45em 0 0 .7em;
+
+    background-color: var(--light-fg-color);
+    border: 2px solid var(--title-color);
+    border-radius: 5px;
+}
+#gridSizeContainer:hover{
+    border-color: var(--highlight-color);
+}
+#gridSizeInput{
+    width: 100%;
+    font: 20px 'Varela Round', Helvetica;
+    text-align: center;
+    color: var(--light-text-color);
+    background-color: var(--light-fg-color);
+    border: 0px;
+    outline: none;
+}
+
+#gridSizeInput::placeholder{
+    font: 20px 'Varela Round', Helvetica;
+    color: var(--dark-fg-color);
+    text-align: center;
+}
+#gridSizeBtn{
+    height: 2.05em;
+    width: 5.93em;
+    font: 20px 'Varela Round', Helvetica;
+    margin: 5px;
+    color: var(--dark-text-color);
+    background-color: var(--dark-fg-color);
+    border:2px solid var(--title-color); 
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+#gridSizeBtn:hover{
+    border-color: var(--highlight-color)
+}
+#rainbowBtn{
+    display: inline-block;
+    height: 90px;
+    width: 90px;
+    cursor: pointer;
+    border: 2px solid var(--title-color);
+    border-radius: 10px;
+}
+#rainbowBtn:hover{
+    border-color: var(--highlight-color);
+    filter: saturate(1.2) contrast(1.2);
+}
+#sketchContainer{
+    height: 900px;
+    width: 900px;
+    padding: 0;
+    margin: auto;
+    display: grid;
+    border: 10px solid var(--title-color);
+    grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+}
+#sketchContainer:hover{
+    border-color: var(--highlight-color);
+}
+
+
+/* Classes */
+.sketchCell{
+    background-color: white;
+}
+.sketchCellGrey{
+    background-color:rgb(137, 138, 143);
+}
+
+/* Tags */
+body{
+    text-align: center;
+    margin: 0;
+    background-color: var(--bg-color);
+}
+header{
+    display: inline-grid;
+    padding: 0;
+    margin: 30px auto 50px auto;
+    width: 900px;
+    grid-template-columns: 60% 12% 15% 13%;
+    place-items: center right;
+}
+h1{
+    display: inline-block;
+    font: 20px 'Varela Round', Helvetica;
+}
+footer{
+    font: 15px 'Varela Round', Helvetica;
+    margin: 50px 50px 30px auto;
+    color: var(--title-color);
+}
+a{
+    color: var(--dark-fg-color);
+}
+a:hover{
+    color: var(--highlight-color);
+}
