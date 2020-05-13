@@ -1,7 +1,13 @@
 function colorCell(e){
-    this.style.backgroundColor = 
-        getComputedStyle(document.documentElement)
-        .getPropertyValue('--dark-fg-color');
+    if(rainbow){
+        const rainbowrgb = makeRainbow(currentColor, 0.2, 127);
+        this.style.backgroundColor = `rgb(${rainbowrgb[0]}, ${rainbowrgb[1]}, ${rainbowrgb[2]})`;
+        currentColor++;
+    } else {
+        this.style.backgroundColor = 
+            getComputedStyle(document.documentElement)
+            .getPropertyValue('--dark-fg-color');
+    }
 }
 
 function reset(e){
@@ -10,6 +16,7 @@ function reset(e){
     if(Math.floor(gridSizeInput.value)){
         gridSize=Math.floor(gridSizeInput.value);
     }
+    gridSizeInput.value = "";
 
     while(sketchContainer.hasChildNodes()){
         sketchContainer.firstChild.remove();
@@ -33,7 +40,7 @@ function generateGrid(sketchContainer){
 }
 
 let gridSize = 8;
-let rainbow = false;
+let rainbow = true;
 let currentColor = 0;
 
 const gridSizeBtn = document.getElementById("gridSizeBtn");
