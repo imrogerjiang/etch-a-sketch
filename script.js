@@ -39,15 +39,35 @@ function generateGrid(sketchContainer){
     }
 }
 
-let gridSize = 8;
-let rainbow = true;
-let currentColor = 0;
+function changeRainbowBtn(brightness=1){
+    if(rainbow){
+        rainbowBtn.style.filter = `saturate(1) brightness(${brightness})`;
+    } else {
+        rainbowBtn.style.filter = `saturate(0) brightness(${brightness})`;
+    }
+}
 
-const gridSizeBtn = document.getElementById("gridSizeBtn");
+function toggleRainbow(e){
+    rainbow = !rainbow;
+    changeRainbowBtn();
+}
+
+function rainbowHover(e) {
+    changeRainbowBtn(brightness = 1.2);
+}
+
+function rainbowLeave(e) {
+    changeRainbowBtn();
+}
+
+let gridSize = 8;
+let rainbow = false;
+let currentColor = 0;
 
 const sketchContainer = document.getElementById("sketchContainer");
 generateGrid(sketchContainer)
 
+const gridSizeBtn = document.getElementById("gridSizeBtn");
 // Change grid size by pressing "Enter"
 document.getElementById("gridSizeInput").addEventListener(
     "keyup",
@@ -57,7 +77,9 @@ document.getElementById("gridSizeInput").addEventListener(
         };
     }
 )
-
 gridSizeBtn.addEventListener("click", reset);
 
-
+const rainbowBtn = document.getElementById("rainbowBtn");
+rainbowBtn.addEventListener("click", toggleRainbow);
+rainbowBtn.addEventListener("mouseenter", rainbowHover);
+rainbowBtn.addEventListener("mouseleave", rainbowLeave);
