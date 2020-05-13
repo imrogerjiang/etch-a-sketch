@@ -39,12 +39,11 @@ function generateGrid(sketchContainer){
     }
 }
 
-function changeRainbowBtn(brightness=1){
-    if(rainbow){
-        rainbowBtn.style.filter = `saturate(1) brightness(${brightness})`;
-    } else {
-        rainbowBtn.style.filter = `saturate(0) brightness(${brightness})`;
-    }
+function changeRainbowBtn(hover=false){
+    const saturation = (rainbow) ? 1 : 0;
+    const brightness = (hover) ? 1.2 : 1;
+
+    rainbowBtn.style.filter = `saturate(${saturation}) brightness(${brightness})`;
 }
 
 function toggleRainbow(e){
@@ -53,7 +52,7 @@ function toggleRainbow(e){
 }
 
 function rainbowHover(e) {
-    changeRainbowBtn(brightness = 1.2);
+    changeRainbowBtn(true);
 }
 
 function rainbowLeave(e) {
