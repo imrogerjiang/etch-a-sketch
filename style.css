@@ -77,13 +77,9 @@
     border-radius: 10px;
     filter: saturate(0) ;
 }
-#rainbowBtn:hover{
-    border-color: var(--highlight-color);
-    filter: saturate(0) brightness(1.2);
-}
 #sketchContainer{
-    height: 900px;
-    width: 900px;
+    height: 700px;
+    width: 700px;
     padding: 0;
     margin: auto;
     display: grid;
