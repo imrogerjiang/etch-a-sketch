@@ -1,12 +1,30 @@
 function colorCell(e){
-    this.classList.add("sketchCellGrey");
+    this.style.backgroundColor = 
+        getComputedStyle(document.documentElement)
+        .getPropertyValue('--dark-fg-color');
+}
+
+function reset(e){
+    // Get user input grid size
+    const gridSizeInput = document.getElementById("gridSizeInput");
+    if(Math.floor(gridSizeInput.value)){
+        gridSize=Math.floor(gridSizeInput.value);
+    }
+
+    while(sketchContainer.hasChildNodes()){
+        sketchContainer.firstChild.remove();
+    }
+
+    generateGrid(sketchContainer);
 }
 
 function generateGrid(sketchContainer){
-    const n = 4;
+    // Sets size of rows and columns
+    sketchContainer.style.gridTemplate = 
+        `repeat(${gridSize}, 1fr) / repeat(${gridSize}, 1fr)`;
+    
     sketchCells = [];
-
-    for(i=0; i<n*n; i++){
+    for(i=0; i<gridSize*gridSize; i++){
         sketchCells.push(document.createElement("div"));
         sketchCells[i].classList.add("sketchCell");
         sketchCells[i].addEventListener("mouseenter", colorCell);
@@ -14,5 +32,25 @@ function generateGrid(sketchContainer){
     }
 }
 
-sketchContainer = document.getElementById("sketchContainer");
+let gridSize = 8;
+let rainbow = false;
+let currentColor = 0;
+
+const gridSizeBtn = document.getElementById("gridSizeBtn");
+
+const sketchContainer = document.getElementById("sketchContainer");
 generateGrid(sketchContainer)
+
+// Change grid size by pressing "Enter"
+document.getElementById("gridSizeInput").addEventListener(
+    "keyup",
+    function (e) {
+        if(e.key == "Enter"){
+            gridSizeBtn.click();
+        };
+    }
+)
+
+gridSizeBtn.addEventListener("click", reset);
+
+

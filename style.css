@@ -65,7 +65,8 @@
     cursor: pointer;
 }
 #gridSizeBtn:hover{
-    border-color: var(--highlight-color)
+    border-color: var(--highlight-color);
+    filter: brightness(1.2);
 }
 #rainbowBtn{
     display: inline-block;
@@ -74,10 +75,11 @@
     cursor: pointer;
     border: 2px solid var(--title-color);
     border-radius: 10px;
+    filter: saturate(0) ;
 }
 #rainbowBtn:hover{
     border-color: var(--highlight-color);
-    filter: saturate(1.2) contrast(1.2);
+    filter: saturate(0) brightness(1.2);
 }
 #sketchContainer{
     height: 900px;
@@ -96,9 +98,6 @@
 /* Classes */
 .sketchCell{
     background-color: white;
-}
-.sketchCellGrey{
-    background-color:rgb(137, 138, 143);
 }
 
 /* Tags */
